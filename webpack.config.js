@@ -7,7 +7,7 @@ const isProd = process.env.NODE_ENV === "production"
 
 
 const webpackConfig = {
-  entry: './public/static/js/dev/main.js',
+  entry: './client/app.js',
   output: {
     filename: './public/static/js/prod/bundle.js'
   },
