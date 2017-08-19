@@ -16,6 +16,26 @@
   c.width = window.innerWidth
   c.height = window.innerHeight
 
+  ctx.fillStyle = 'cornflowerblue'
+  ctx.strokeStyle = 'yellow'
+
+  ctx.shadowColor = 'rgba(50, 50, 50, 1.0)'
+  ctx.shadowOffsetX = 2
+  ctx.shadowOffsetY = 2
+
+  ctx.shadowBlur = 4
+
+  ctx.lineWidth = 20
+  ctx.lineCap = 'round'
+
+  ctx.beginPath()
+  ctx.moveTo(120.5, 139)
+  ctx.quadraticCurveTo(150.8, 130, 160.6, 150.5)
+  ctx.quadraticCurveTo(190, 250, 210.5, 160.5)
+  ctx.quadraticCurveTo(240, 100.5, 290, 70.5)
+
+  ctx.stroke()
+
 
 </script>
 </body>
