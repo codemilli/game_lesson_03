@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    body { margin: 0; }
+  </style>
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+<script>
+  var c = document.getElementById('canvas')
+  var ctx = c.getContext('2d')
+
+  c.width = window.innerWidth
+  c.height = window.innerHeight
+
+  function roundedRect(cornerX, cornerY, width, height, cornerRadius) {
+    if (width > 0) {
+      ctx.moveTo(cornerX + cornerRadius, cornerY)
+    } else {
+      ctx.moveTo(cornerX - cornerRadius, cornerY)
+    }
+
+//    ctx.arcTo(cornerX + width, cornerY, cornerX + width, cornerY + height, cornerRadius)
+
+//    ctx.arcTo(cornerX + width, cornerY + height, cornerX, cornerY + height, cornerRadius)
+//
+//    ctx.arcTo(cornerX, cornerY + height, cornerX, cornerY, cornerRadius)
+
+//    if (width > 0) {
+//      ctx.arcTo(cornerX, cornerY, cornerX + cornerRadius, cornerY, cornerRadius)
+//    } else {
+//      ctx.arcTo(cornerX, cornerY, cornerX - cornerRadius, cornerY, cornerRadius)
+//    }
+
+    ctx.beginPath();
+    ctx.moveTo(20,200);           // Create a starting point
+    ctx.lineTo(100,200);          // Create a horizontal line
+
+    ctx.stroke()
+
+    ctx.beginPath();
+    ctx.moveTo(20,20);           // Create a starting point
+    ctx.lineTo(100,20);          // Create a horizontal line
+    ctx.arcTo(150,20,150,70, 50); // Create an arc
+//    ctx.lineTo(150,120);         // Continue with vertical line
+//    ctx.stroke();                // Draw it
+
+//    ctx.arcTo(0, 0, 10, 10, 5)
+
+    ctx.rect(100, 15, 1, 1)
+    ctx.rect(150, 20, 1, 1)
+    ctx.rect(150, 70, 1, 1)
+
+    ctx.beginPath();
+    ctx.moveTo(100, 225);             // P0
+    ctx.arcTo(300, 25, 500, 225, 30); // P1, P2 and the radius
+    ctx.lineTo(500, 225);             // P2
+    ctx.stroke();
+  }
+
+  function drawRoundedRect(strokeStyle, fillStyle, cornerX, cornerY,
+                            width, height, cornerRadius) {
+    ctx.beginPath()
+
+    roundedRect(cornerX, cornerY, width, height, cornerRadius)
+
+    ctx.strokeStyle = strokeStyle
+    ctx.fillStyle = fillStyle
+
+    ctx.stroke()
+    ctx.fill()
+  }
+
+  drawRoundedRect('blue', 'yellow', 50, 40, 100, 100, 40)
+//  drawRoundedRect('purple', 'green', 275, 40, -100, 100, 20)
+//  drawRoundedRect('red', 'white', 300, 140, 100, -100, 30)
+//  drawRoundedRect('white', 'blue', 525, 140, -100, -100, 40)
+
+</script>
+</body>
+</html>
